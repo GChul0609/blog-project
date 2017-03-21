@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<!--左侧导航栏-->
+
+<nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <button class="navbar-toggle" data-toggle="collapse" data-target="#menus">
+            <span class="sr-only">我的博客</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a href="/" class="navbar-brand">GChul博客</a>
+    </div>
+    <!--右侧导航栏-->
+    <div class="collapse navbar-collapse" id="menus">
+        <ul class="nav navbar-nav">
+            <%if(!user){%>
+            <li class="active"><a href="/users/reg">注册</a></li>
+            <li><a href="/users/login">登录</a></li>
+            <%}else{%>
+            <li><a href="/articles/add">发表文章</a></li>
+            <li><a href="/users/logout">
+                    (<%=user.username%>)注销</a></li>
+            <%}%>
+        </ul>
+        <form class="navbar-form navbar-right" action="/articles/list/1/2" method="post" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" name="keyword" value="keyword" placeholder="Search">
+            </div>
+            <button type="submit" name="searchBtn" value="搜索" class="btn btn-default">搜索</button>
+        </form>
+    </div>
+</nav>
+
+<div class="container text-center">
+    <%if(success){
+    %>
+        <div class="alert alert-success" role="alert"><%=success%></div>
+    <%
+    }%>
+    <%if(error){
+    %>
+    <div class="alert alert-danger" role="alert"><%=error%></div>
+    <%
+    }%>
+</div>

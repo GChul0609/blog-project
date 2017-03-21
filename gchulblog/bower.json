@@ -1,0 +1,20 @@
+{
+  "name": "gchulblog",
+  "description": "我的博客",
+  "main": "",
+  "authors": [
+    "GChul0609 <1586175325@qq.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/GChul0609/blog-project",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
